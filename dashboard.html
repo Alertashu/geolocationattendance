@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | GeoAttendance</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>GeoAttendance</h2>
+    <ul>
+      <li>Dashboard</li>
+      <li><a href="attendance.html">Attendance</a></li>
+
+      <li>Occupancy</li>
+      <li>Attendance Reports</li>
+      <li>Employees</li>
+      <li>Settings</li>
+      <li>Shift Management</li>
+      <li>Meeting Management</li>
+      <li>Leave</li>
+      <li>Pending Approvals</li>
+      <li>Device</li>
+      <li>Overtime</li>
+      <li>Payroll</li>
+    </ul>
+  </div>
+
+  <div class="header">
+    <h1>ATTENDANCE</h1>
+    <div>
+      <span id="currentDate"></span>
+        <script>
+  window.onload = function () {
+    const currentDateSpan = document.getElementById('currentDate');
+    const today = new Date();
+
+    const options = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
+    const formattedDate = today.toLocaleDateString('en-GB', options);
+
+    currentDateSpan.textContent = formattedDate;
+  };
+</script>
+
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="card">
+      <h3>Present</h3>
+      <canvas id="presentChart"></canvas>
+    </div>
+    <div class="card">
+      <h3>Absent</h3>
+      <canvas id="absentChart"></canvas>
+    </div>
+    <div class="card">
+      <h3>On Time</h3>
+      <canvas id="ontimeChart"></canvas>
+    </div>
+    <div class="card">
+      <h3>Late</h3>
+      <canvas id="lateChart"></canvas>
+    </div>
+
+    <div class="card">
+      <h3>Department Wise Attendance</h3>
+      <div class="pie-charts">
+        <canvas class="chart" id="deptChart1"></canvas>
+        <canvas class="chart" id="deptChart2"></canvas>
+        <canvas class="chart" id="deptChart3"></canvas>
+      </div>
+    </div>
+
+    <div class="card late-today">
+      <h3>Late Today</h3>
+      <div class="attendance-feed">
+        <div class="feed-item">
+          <span></span>
+          <span></span>
+        </div>
+        <div class="feed-item">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card on-leave">
+      <h3>On Leave</h3>
+      <div class="attendance-feed">
+        <div class="feed-item">
+          <span></span>
+          <span></span>
+        </div>
+        <div class="feed-item">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
